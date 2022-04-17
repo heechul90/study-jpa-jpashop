@@ -3,7 +3,6 @@ package jpabook.jpashop.service;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,7 +10,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class MemberService {
 
     // 필드주입 : 바꿀수 없다. 최대 단점.
@@ -33,6 +32,7 @@ public class MemberService {
      * @param member
      * @return
      */
+    @Transactional
     public Long join(Member member) {
         validateDuplicateMember(member); //중복회원검증
         memberRepository.save(member);
@@ -43,7 +43,6 @@ public class MemberService {
      * 회원 목록
      * @return
      */
-    @Transactional(readOnly = true)
     public List<Member> findMembers() {
         return memberRepository.findAll();
     }
@@ -53,7 +52,6 @@ public class MemberService {
      * @param memberId
      * @return
      */
-    @Transactional(readOnly = true)
     public Member findOne(Long memberId) {
         return memberRepository.findOne(memberId);
     }
@@ -66,6 +64,5 @@ public class MemberService {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }
-
 
 }
