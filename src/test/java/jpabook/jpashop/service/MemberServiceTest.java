@@ -2,14 +2,12 @@ package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
@@ -32,7 +30,7 @@ class MemberServiceTest {
 
         //then
         Member findMember = memberRepository.findOne(savedId);
-        Assertions.assertThat(findMember).isEqualTo(member);
+        assertThat(findMember).isEqualTo(member);
     }
 
     @Test
@@ -49,7 +47,7 @@ class MemberServiceTest {
         //memberService.join(member2); //예외가 발생해야 한다!!
 
         //then
-        assertThrows(IllegalStateException.class, () ->
-                memberService.join(member2));
+        assertThatThrownBy(() -> memberService.join(member2))
+                .isInstanceOf(IllegalStateException.class);
     }
 }
