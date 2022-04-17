@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain.item;
 
+import jpabook.jpashop.exception.NotEnoghStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn
+@DiscriminatorColumn(name = "dtype")
 @Getter @Setter
 public class Item {
 
@@ -23,4 +24,18 @@ public class Item {
 
     @ManyToMany(mappedBy = "items")
     private List<Category> Categories = new ArrayList<>();
+
+    //=== 비즈니스 로직===//
+
+    public void addStock(int quantity) {
+        this.stockQuantity += quantity;
+    }
+
+    public void removeStock(int quantity) {
+        int restStock = this.stockQuantity - quantity;
+        if (restStock < 0) {
+            throw new NotEnoghStockException("need more stock");
+        }
+        this.stockQuantity = restStock;
+    }
 }
