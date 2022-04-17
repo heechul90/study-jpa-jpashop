@@ -2,6 +2,7 @@ package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Member;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -12,7 +13,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberRepository {
 
+    //스프링부트 스프링데이터제이피에이에서 생성자 주입을 지원해준다.
     private final EntityManager em;
+
+    //생성자 주입이 안되는 환경이라면 이렇게 주입해야한다.
+    //@PersistenceContext
+    //private EntityManager em;
 
     /**
      * Member 저장
