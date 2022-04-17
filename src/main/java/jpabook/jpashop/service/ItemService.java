@@ -19,8 +19,9 @@ public class ItemService {
      * Item 저장 및 수정
      * @param item
      */
-    public void saveItem(Item item) {
+    public Long saveItem(Item item) {
         itemRepository.save(item);
+        return item.getId();
     }
 
     /**
