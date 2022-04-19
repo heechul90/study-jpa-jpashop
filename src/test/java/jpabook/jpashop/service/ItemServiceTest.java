@@ -25,7 +25,6 @@ class ItemServiceTest {
     private ItemRepository itemRepository;
 
     @Test
-    @Rollback(value = false)
     void saveItem() {
         //given
         Item item = new Item();
