@@ -26,6 +26,18 @@ public class ItemService {
     }
 
     /**
+     * Item 수정(변경감지)
+     */
+    @Transactional
+    public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+        Item findItem = itemRepository.findOne(itemId);
+        /*findItem.change(name, price, stockQuantity);*/
+        findItem.setName(name);
+        findItem.setPrice(price);
+        findItem.setStockQuantity(stockQuantity);
+    }
+
+    /**
      * Item 조회(id)
      * @param id
      * @return
