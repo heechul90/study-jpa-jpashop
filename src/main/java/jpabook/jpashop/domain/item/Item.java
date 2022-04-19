@@ -26,7 +26,6 @@ public class Item {
     private List<Category> Categories = new ArrayList<>();
 
     //=== 비즈니스 로직===//
-
     public void addStock(int quantity) {
         this.stockQuantity += quantity;
     }

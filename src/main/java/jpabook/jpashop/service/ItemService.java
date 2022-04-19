@@ -19,6 +19,7 @@ public class ItemService {
      * Item 저장 및 수정
      * @param item
      */
+    @Transactional
     public Long saveItem(Item item) {
         itemRepository.save(item);
         return item.getId();
