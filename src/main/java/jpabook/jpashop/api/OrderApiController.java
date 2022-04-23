@@ -75,7 +75,12 @@ public class OrderApiController {
     @GetMapping(value = "/api/v4/orders")
     public JsonResult ordersV4() {
         List<OrderQueryDto> resultList = orderQueryRepository.findOrderQueryDtos();
+        return new JsonResult(resultList.size(), resultList);
+    }
 
+    @GetMapping(value = "/api/v5/orders")
+    public JsonResult ordersV5() {
+        List<OrderQueryDto> resultList = orderQueryRepository.findAllByDto_optimization();
 
         return new JsonResult(resultList.size(), resultList);
     }
