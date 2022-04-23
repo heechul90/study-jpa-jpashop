@@ -50,6 +50,15 @@ public class OrderSimpleApiController {
         return new JsonResult(collect.size(), collect);
     }
 
+    @GetMapping(value = "/api/v3/simple-orders")
+    public JsonResult ordersV3() {
+        List<Order> orders = orderRepository.findAllWithMemberDelivery();
+        List<SimpleOrderDto> collect = orders.stream()
+                .map(order -> new SimpleOrderDto(order))
+                .collect(Collectors.toList());
+        return new JsonResult(collect.size(), collect);
+    }
+
     @Data
     static class SimpleOrderDto {
         private Long orderId;
