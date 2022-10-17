@@ -5,7 +5,17 @@
 ## 목차
 1. 프로젝트 환경설정
     - 프로젝트 생성
-    - 라이브러리 살펴보기
+        - 프로젝트 선택
+           - Project : Gradle Project
+           - Language : Java
+           - Spring Boot : 2.6.x
+        - Project Metadata
+           - Group : jpabook
+           - Artifact : jpashop
+           - Package name : jpabook.jpashop
+           - Packaging : Jar
+           - Java : 11
+     - 라이브러리 살펴보기
     - View 환경 설정
     - H2 데이터베이스 설치
     - JPA와 DB 설정, 동작 확인
