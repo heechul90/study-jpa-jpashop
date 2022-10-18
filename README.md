@@ -80,4 +80,4 @@
 5. API 개발 고급 - 실무 필수 최적화
     - OSIV와 성능 최적화
    
-[다음으로](https://github.com/heechul90/study-jpa-springdata-jpa.git)
+[[이전으로]](https://github.com/heechul90/study-jpa-jpql) [[다음으로]](https://github.com/heechul90/study-jpa-springdata-jpa.git)
