@@ -81,3 +81,5 @@
     - OSIV와 성능 최적화
    
 [[이전으로]](https://github.com/heechul90/study-jpa-jpql) [[다음으로]](https://github.com/heechul90/study-jpa-springdata-jpa.git)
+
+[[복습하기/적용하기]](https://github.com/heechul90/project-hellcoding)
